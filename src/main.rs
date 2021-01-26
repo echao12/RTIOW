@@ -7,9 +7,9 @@ fn main() {
     const IMAGE_WIDTH: i32 = 256;
     const IMAGE_HEIGHT: i32 = 256;
     //structuring .ppm format. P3 means colors in ASCII, then col x row, then max value.
-    let mut file = File::create("image.ppm").expect("failed to create file");
+    let mut file = File::create("image.ppm").expect("failed to create file");//manual file write.
     let line: String = format!("P3\n{} {} \n255\n", IMAGE_WIDTH, IMAGE_HEIGHT);
-    println!("{}", line);//apparently this outputs to standatd output by default
+    println!("{}", line);//apparently this outputs to standatd output by default. we can use this to output to a file by comand line, but found out too late LOL.
     write!(file, "{}", line);//this macro will format and return a string
     //note, rows written top->bottom and pixels from left -> right
     for j in (0..IMAGE_HEIGHT).rev() {
